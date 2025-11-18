@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Todo App</title>
+<link rel="preconnect" href="https://fonts.gstatic.com">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css" />
+<link rel="stylesheet" href="./main.css" />
+</head>
+<body>
+
+  <form class="task-form">
+    <h4>Todo App</h4>
+    
+    <div class="form-control">
+      <input
+        type="text"
+        name="name"
+        class="task-input"
+        placeholder="e.g. wash dishes"
+        required
+      />
+    </div>
+    
+    <div class="form-control compact-row">
+      <div class="compact-field">
+        <label for="due-date">Due Date:</label>
+        <input
+          type="date"
+          name="dueDate"
+          class="due-date-input compact-input"
+          id="due-date"
+        />
+      </div>
+      
+      <div class="compact-field">
+        <label for="priority">Priority:</label>
+        <select name="priority" class="priority-select compact-input" id="priority">
+          <option value="1">🚩 High</option>
+          <option value="2">🟠 Med-High</option>
+          <option value="3">🟡 Med-Low</option>
+          <option value="4" selected>🟢 Low</option>
+        </select>
+      </div>
+      
+      <div class="compact-field">
+        <label class="checkbox-label compact-checkbox">
+          <input
+            type="checkbox"
+            name="isRepeating"
+            class="repeat-checkbox"
+          />
+          Repeat Daily
+        </label>
+      </div>
+    </div>
+    
+    <div class="form-control">
+      <button type="submit" class="btn submit-btn">Add Task</button>
+    </div>
+    
+    <div class="form-alert"></div>
+  </form>
+
+  <section class="tasks-container">
+    <p class="loading-text">Loading...</p>
+    <div class="tasks"></div>
+  </section>
+
+  <!-- axios -->
+  <script
+    src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.21.1/axios.min.js"
+    integrity="sha512-bZS47S7sPOxkjU/4Bt0zrhEtWx0y0CRkhEp8IckzK+ltifIIE9EMIMTuT/mEzoIMewUINruDBIR/jJnbguonqQ=="
+    crossorigin="anonymous"
+    referrerpolicy="no-referrer"
+  ></script>
+  <script src="./browser-app.js"></script>
+</body>
+</html>

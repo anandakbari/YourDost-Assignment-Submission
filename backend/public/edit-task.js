@@ -1,5 +1,8 @@
 const taskIDDOM = document.querySelector('.task-edit-id')
 const taskNameDOM = document.querySelector('.task-edit-name')
+const taskDueDateDOM = document.querySelector('.task-edit-due-date')
+const taskPriorityDOM = document.querySelector('.task-edit-priority')
+const taskRepeatDOM = document.querySelector('.task-edit-repeat')
 const taskCompletedDOM = document.querySelector('.task-edit-completed')
 const editFormDOM = document.querySelector('.single-task-form')
 const editBtnDOM = document.querySelector('.task-edit-btn')
@@ -11,16 +14,17 @@ let tempName
 const showTask = async () => {
   try {
     const {
-      data: { task },
-    } = await axios.get(`/api/v1/tasks/${id}`)
-    const { _id: taskID, completed, name } = task
+      data: { todo },
+    } = await axios.get(`/todos/${id}`)
+    const { id: todoID, completed, name, dueDate, priority, isRepeating } = todo
 
-    taskIDDOM.textContent = taskID
+    taskIDDOM.textContent = todoID
     taskNameDOM.value = name
+    taskDueDateDOM.value = dueDate
+    taskPriorityDOM.value = priority
+    taskRepeatDOM.checked = isRepeating
+    taskCompletedDOM.checked = completed
     tempName = name
-    if (completed) {
-      taskCompletedDOM.checked = true
-    }
   } catch (error) {
     console.log(error)
   }
@@ -33,23 +37,30 @@ editFormDOM.addEventListener('submit', async (e) => {
   e.preventDefault()
   try {
     const taskName = taskNameDOM.value
+    const taskDueDate = taskDueDateDOM.value
+    const taskPriority = parseInt(taskPriorityDOM.value)
+    const taskRepeat = taskRepeatDOM.checked
     const taskCompleted = taskCompletedDOM.checked
 
     const {
-      data: { task },
-    } = await axios.patch(`/api/v1/tasks/${id}`, {
+      data: { todo },
+    } = await axios.put(`/todos/${id}`, {
       name: taskName,
+      dueDate: taskDueDate,
+      priority: taskPriority,
+      isRepeating: taskRepeat,
       completed: taskCompleted,
     })
 
-    const { _id: taskID, completed, name } = task
+    const { id: todoID, completed, name, dueDate, priority, isRepeating } = todo
 
-    taskIDDOM.textContent = taskID
+    taskIDDOM.textContent = todoID
     taskNameDOM.value = name
+    taskDueDateDOM.value = dueDate
+    taskPriorityDOM.value = priority
+    taskRepeatDOM.checked = isRepeating
+    taskCompletedDOM.checked = completed
     tempName = name
-    if (completed) {
-      taskCompletedDOM.checked = true
-    }
     formAlertDOM.style.display = 'block'
     formAlertDOM.textContent = `success, edited task`
     formAlertDOM.classList.add('text-success')

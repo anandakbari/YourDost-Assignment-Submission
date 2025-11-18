@@ -26,6 +26,23 @@
           <input type="text" name="name" class="task-edit-name" />
         </div>
         <div class="form-control">
+          <label for="dueDate">Due Date</label>
+          <input type="date" name="dueDate" class="task-edit-due-date" />
+        </div>
+        <div class="form-control">
+          <label for="priority">Priority</label>
+          <select name="priority" class="task-edit-priority">
+            <option value="1">🚩 High (1)</option>
+            <option value="2">🟠 Medium-High (2)</option>
+            <option value="3">🟡 Medium-Low (3)</option>
+            <option value="4">🟢 Low (4)</option>
+          </select>
+        </div>
+        <div class="form-control">
+          <label for="isRepeating">Repeat Daily</label>
+          <input type="checkbox" name="isRepeating" class="task-edit-repeat" />
+        </div>
+        <div class="form-control">
           <label for="completed">completed</label>
           <input type="checkbox" name="completed" class="task-edit-completed" />
         </div>
