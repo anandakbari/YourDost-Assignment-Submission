@@ -14,10 +14,11 @@ app.use('/todos',todos)
 app.use(notFound)
 app.use(errorhandler)
 
-const port=process.env.PORT || 3000
+const port = process.env.PORT || 3000
+const host = process.env.HOST || '0.0.0.0'
 
-app.listen(port, () => {
-    console.log(`server running on port ${port}`)
+app.listen(port, host, () => {
+    console.log(`server running on ${host}:${port}`)
 })
 
 
