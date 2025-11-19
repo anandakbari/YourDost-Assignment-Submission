@@ -62,6 +62,7 @@ frontend/
 ├── package.json             # Dependencies and scripts
 ├── vite.config.ts          # Vite configuration
 ├── tsconfig.json           # TypeScript configuration
+├── netlify.toml            # Netlify deployment configuration
 └── README.md               # This file
 ```
 
@@ -228,8 +229,38 @@ vercel --prod
 2. Set the root directory to `frontend` in Vercel dashboard
 3. Automatic deployments on push to main branch
 
+#### Netlify (Alternative)
+
+**Option 1: Automatic GitHub Integration**
+1. Connect your GitHub repository to Netlify
+2. Set build settings:
+   - **Base directory**: `frontend`
+   - **Build command**: `npm ci && npm run build` (auto-detected)
+   - **Publish directory**: `dist` (auto-detected)
+3. Deploy automatically on git push
+
+**Option 2: Manual Deploy**
+1. Build the project locally:
+   ```bash
+   cd frontend
+   npm run build
+   ```
+2. Drag & drop the `dist/` folder to Netlify dashboard
+
+**Option 3: Netlify CLI**
+```bash
+cd frontend
+netlify deploy --prod --dir=dist
+```
+
+The `netlify.toml` configuration file includes:
+- ✅ Build optimization settings
+- ✅ SPA routing support (redirects all routes to index.html)
+- ✅ Security headers
+- ✅ Asset caching for better performance
+- ✅ Gzip compression
+
 #### Other Platforms
-- **Netlify**: Drag & drop `frontend/dist/` folder
 - **GitHub Pages**: Use GitHub Actions with `frontend/dist` as source
 - **Firebase Hosting**: `firebase deploy` from frontend directory
 
