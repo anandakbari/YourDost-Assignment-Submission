@@ -1,13 +1,8 @@
-import React from 'react';
-import { User } from '../types/User';
+
 import { Circle } from 'lucide-react';
+import type { User } from '../types/User';
 
-interface UserCardProps {
-  user: User;
-  index: number;
-}
-
-const UserCard: React.FC<UserCardProps> = ({ user, index }) => {
+export default function UserCard({ user, index }:{user:User, index:number}){
   const getEmailDomain = (email: string) => {
     return email.split('@')[1];
   };
@@ -44,13 +39,13 @@ const UserCard: React.FC<UserCardProps> = ({ user, index }) => {
         <div className="flex-1 min-w-0">
           <div className="flex items-start justify-between">
             <div>
-              <h3 className="text-lg font-semibold text-gray-900 group-hover:text-primary-600 transition-colors">
+              <h3 className="text-lg font-semibold text-gray-900 group-hover:text-blue-600 transition-colors">
                 {user.first_name} {user.last_name}
               </h3>
               <p className="text-sm text-gray-600 mt-1">{user.email}</p>
             </div>
             <div className="flex flex-col items-end gap-2">
-              <span className="inline-flex items-center px-3 py-1 rounded-full text-xs font-semibold bg-primary-100 text-primary-800 border border-primary-200">
+              <span className="inline-flex items-center px-3 py-1 rounded-full text-xs font-semibold bg-blue-100 text-blue-800 border border-blue-200">
                 ID #{user.id}
               </span>
               <span className={`inline-flex items-center px-2 py-1 rounded-md text-xs font-medium border ${getDomainColor(getEmailDomain(user.email))}`}>
@@ -63,5 +58,3 @@ const UserCard: React.FC<UserCardProps> = ({ user, index }) => {
     </div>
   );
 };
-
-export default UserCard;

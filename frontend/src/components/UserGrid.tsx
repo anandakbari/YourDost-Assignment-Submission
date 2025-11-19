@@ -1,13 +1,8 @@
-import React from 'react';
-import { User } from '../types/User';
-import UserCard from './UserCard';
+import type{ User } from '../types/User';
 import { Users } from 'lucide-react';
+import UserCard from './UserCard';
 
-interface UserGridProps {
-  users: User[];
-}
-
-const UserGrid: React.FC<UserGridProps> = ({ users }) => {
+export default function UserGrid({ users }:{users:User[]}){
   if (users.length === 0) {
     return (
       <div className="card p-12 text-center animate-fade-in">
@@ -32,5 +27,3 @@ const UserGrid: React.FC<UserGridProps> = ({ users }) => {
     </div>
   );
 };
-
-export default UserGrid;

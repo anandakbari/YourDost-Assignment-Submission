@@ -1,4 +1,3 @@
-import React from 'react';
 import { Search, Filter, BarChart3, X } from 'lucide-react';
 
 interface SearchAndFilterProps {
@@ -12,7 +11,7 @@ interface SearchAndFilterProps {
   filteredUsers: number;
 }
 
-const SearchAndFilter: React.FC<SearchAndFilterProps> = ({
+export default function SearchAndFilter({
   searchTerm,
   onSearchChange,
   filterType,
@@ -21,13 +20,13 @@ const SearchAndFilter: React.FC<SearchAndFilterProps> = ({
   onSortChange,
   totalUsers,
   filteredUsers,
-}) => {
+}: SearchAndFilterProps){
   return (
     <div className="card p-8 mb-8 animate-slide-up">
       <div className="flex justify-between items-center mb-6">
         <h2 className="text-xl font-semibold text-gray-800 mb-2">Search & Filter</h2>
         <div className="flex flex-row items-center gap-2 text-sm text-gray-600">
-          <span className="inline-flex items-center px-2 py-1 rounded-full bg-primary-100 text-primary-700 font-medium">
+          <span className="inline-flex items-center px-2 py-1 rounded-full bg-blue-100 text-blue-700 font-medium">
             {filteredUsers}
           </span>
           <span>of {totalUsers} users</span>
@@ -119,5 +118,3 @@ const SearchAndFilter: React.FC<SearchAndFilterProps> = ({
     </div>
   );
 };
-
-export default SearchAndFilter;

@@ -1,4 +1,5 @@
-import { ApiResponse } from '../types/User';
+import type { ApiResponse } from "../types/User";
+
 
 const BASE_URL = 'https://reqres.in/api';
 

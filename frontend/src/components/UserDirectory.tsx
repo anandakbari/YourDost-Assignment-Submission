@@ -1,5 +1,5 @@
-import React, { useState, useEffect, useMemo } from 'react';
-import { User } from '../types/User';
+import { useState, useEffect, useMemo } from 'react';
+import type{ User } from '../types/User';
 import { fetchUsers } from '../services/userService';
 import Header from './Header';
 import UserGrid from './UserGrid';
@@ -8,7 +8,7 @@ import Pagination from './Pagination';
 import LoadingSpinner from './LoadingSpinner';
 import { AlertTriangle } from 'lucide-react';
 
-const UserDirectory: React.FC = () => {
+export default function UserDirectory() {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
   const [searchTerm, setSearchTerm] = useState('');
@@ -210,5 +210,3 @@ const UserDirectory: React.FC = () => {
     </div>
   );
 };
-
-export default UserDirectory;
