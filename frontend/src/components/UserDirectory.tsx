@@ -52,7 +52,7 @@ export default function UserDirectory() {
   }, []);
 
   const filteredAndSortedUsers = useMemo(() => {
-    let filtered = allUsers.filter((user) => {
+    const filtered = allUsers.filter((user) => {
       const searchMatch = 
         user.first_name.toLowerCase().includes(searchTerm.toLowerCase()) ||
         user.last_name.toLowerCase().includes(searchTerm.toLowerCase()) ||
@@ -69,12 +69,14 @@ export default function UserDirectory() {
           return user.email.includes('@reqres.in');
         case 'a-f':
           return user.first_name.toLowerCase().charAt(0) <= 'f';
-        case 'g-l':
+        case 'g-l': {
           const firstChar = user.first_name.toLowerCase().charAt(0);
           return firstChar >= 'g' && firstChar <= 'l';
-        case 'm-r':
+        }
+        case 'm-r': {
           const firstCharMR = user.first_name.toLowerCase().charAt(0);
           return firstCharMR >= 'm' && firstCharMR <= 'r';
+        }
         case 's-z':
           return user.first_name.toLowerCase().charAt(0) >= 's';
         default:
