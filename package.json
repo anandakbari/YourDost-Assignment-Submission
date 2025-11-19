@@ -1,10 +1,30 @@
 {
-  "name": "task-manager-project",
+  "name": "yourdost-assignment-submission",
   "version": "1.0.0",
+  "description": "A comprehensive full-stack application portfolio showcasing modern web development skills",
   "scripts": {
     "build": "cd frontend && npm ci && npm run build",
-    "dev": "cd frontend && npm run dev",
+    "dev:frontend": "cd frontend && npm run dev",
+    "dev:backend": "cd backend && npm run dev",
     "install:frontend": "cd frontend && npm install",
-    "build:frontend": "cd frontend && npm run build"
+    "install:backend": "cd backend && npm install",
+    "build:frontend": "cd frontend && npm run build",
+    "start:frontend": "cd frontend && npm run preview",
+    "lint:frontend": "cd frontend && npm run lint"
+  },
+  "keywords": [
+    "react",
+    "typescript",
+    "nodejs",
+    "express",
+    "fullstack",
+    "portfolio",
+    "assignment"
+  ],
+  "author": "Anand Akbari",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/anandakbari/YourDost-Assignment-Submission.git"
   }
 }

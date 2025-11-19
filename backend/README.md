@@ -7,6 +7,15 @@ A full-stack todo list application built with Node.js, Express.js, and vanilla J
 **Backend API**: https://yourdost-assignment-submission.onrender.com
 **Frontend**: https://yourdost-assignment-submission.onrender.com
 
+**Screenshot**:
+<table>
+  <tr>
+    <td><img src="image-1.png" width="300"></td>
+    <td><img src="image-2.png" width="300"></td>
+    <td><img src="image.png" width="300"></td>
+  </tr>
+</table>
+
 ## ✨ Features
 
 ### Backend Features

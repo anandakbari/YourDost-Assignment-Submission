@@ -4,7 +4,14 @@ A modern, responsive React application that fetches and displays user data from 
 
 ## 🚀 Live Demo
 
-[Deploy your app and add the link here]
+[https://yourdost-anand.netlify.app/]
+
+## Screenshot
+<table>
+  <tr>
+    <td><img src="image.png" width="300"></td>
+  </tr>
+</table>
 
 ## 📋 Project Overview
 
@@ -298,82 +305,3 @@ No environment variables required - the app uses public APIs only.
 npm run build
 # Check dist/ folder sizes
 ```
-
-## 🤝 Contributing
-
-### Code Style
-- **ESLint**: Configured with React best practices
-- **TypeScript**: Strict type checking
-- **Prettier**: Code formatting (recommended)
-
-### Development Workflow
-1. Create feature branch
-2. Make changes with proper TypeScript types
-3. Test across devices and browsers
-4. Run `npm run lint` before committing
-5. Create pull request
-
-## 📝 Notes & Decisions
-
-### Technical Decisions
-- **Tailwind CSS v4.0**: Chosen for latest features and performance
-- **Client-side filtering**: Better UX than API requests for each filter
-- **Card layout**: More modern and mobile-friendly than traditional tables
-- **TypeScript**: Enhanced developer experience and code quality
-
-### Trade-offs
-- **All data fetched upfront**: Better UX but initial load time
-- **Client-side pagination**: Smooth UX but not suitable for large datasets
-- **No backend caching**: Simpler setup but API dependency
-
-## 🐛 Troubleshooting
-
-### Common Issues
-
-**Build fails with Tailwind errors:**
-```bash
-# Ensure you have Tailwind CSS v4.0
-npm install tailwindcss@latest @tailwindcss/vite@latest
-```
-
-**TypeScript errors:**
-```bash
-# Check TypeScript version compatibility
-npm install typescript@latest
-```
-
-**API not loading:**
-- Check internet connection
-- Verify ReqRes API status at https://reqres.in/
-
-**Vercel deployment fails with "Failed to resolve /src/main.tsx":**
-1. Ensure you're using the correct deployment method:
-   - Deploy from frontend directory: `cd frontend && vercel`
-   - Or use vercel.json in root with proper configuration
-2. Check that vercel.json has the correct paths:
-   ```json
-   {
-     "buildCommand": "cd frontend && npm run build",
-     "outputDirectory": "frontend/dist",
-     "installCommand": "cd frontend && npm install"
-   }
-   ```
-3. Verify index.html script tag points to correct path: `/src/main.tsx`
-4. Ensure all dependencies are installed in frontend/node_modules
-
-**Vercel build succeeds but app doesn't load:**
-- Check that SPA fallback is configured for client-side routing
-- Verify all assets are correctly referenced
-- Check browser console for errors
-
-## 📄 License
-
-This project is part of a frontend development task and is for educational/evaluation purposes.
-
-## 👨‍💻 Developer
-
-Created as part of the Frontend Developer assessment task.
-
----
-
-*This README covers all aspects of the User Directory application, from setup to deployment. For any questions or issues, please refer to the troubleshooting section or create an issue.*
